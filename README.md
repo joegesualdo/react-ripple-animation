@@ -16,3 +16,6 @@ ReactDOM.render(
  document.getElementById("react-app")
 );
 ```
+Example:
+
+![react-ripple-animation-demo](https://raw.github.com/joegesualdo/dictionary-cli/master/ripple2.gif)
