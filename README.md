@@ -18,4 +18,4 @@ ReactDOM.render(
 ```
 Example:
 
-![react-ripple-animation-demo](https://raw.github.com/joegesualdo/dictionary-cli/master/ripple2.gif)
+![react-ripple-animation-demo](https://raw.github.com/joegesualdo/react-ripple-animation/master/ripple2.gif)
