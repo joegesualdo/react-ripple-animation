@@ -1,6 +1,6 @@
 {
   "name": "react-ripple-animation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A ripple animation react component made with SVG.",
   "main": "index.js",
   "scripts": {
