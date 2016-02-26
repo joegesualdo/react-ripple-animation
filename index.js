@@ -6,6 +6,8 @@ var RippleAnimation = React.createClass({
       color: '#1abc9c',
       strokeWidth: 3,
       size: 60,
+      speed: 2000,
+      fps: 60,
     };
   },
   getInitialState: function(){
@@ -14,17 +16,17 @@ var RippleAnimation = React.createClass({
       radius2: 0,
       opacity1: .0,
       opacity2: .0,
-      intervalFn: null,
+      intervalFn: null
     }
   },
   componentDidMount: function() {
     var that = this;
     var intervalFn = setInterval(function() {
-      that.performTick()
-    }, 10)
+      window.requestAnimationFrame(that.performTick)
+    }, 1000/that.props.fps)
     this.setState({
       intervalFn: intervalFn
-    })
+    });
   },
 
   componentWillUnmount: function() {
@@ -33,8 +35,10 @@ var RippleAnimation = React.createClass({
 
   performTick: function(){
     var maxRadius = (this.props.size/2) - this.props.strokeWidth;
-    var newRadius1 = (this.state.radius1 % maxRadius) + .1;
-    var newRadius2 = (this.state.radius2 % maxRadius) + .1;
+    // Calculates how far the radius should move one eact tick
+    var stepDistance = maxRadius/(this.props.fps* (this.props.speed/1000))
+    var newRadius1 = (this.state.radius1 % maxRadius) + stepDistance;
+    var newRadius2 = (this.state.radius2 % maxRadius) + stepDistance;
     var newOpacity1 = 1 - (newRadius1/(maxRadius))
     var newOpacity2 = 1- (newRadius2/(maxRadius))
 
